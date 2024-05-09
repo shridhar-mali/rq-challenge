@@ -46,8 +46,8 @@ class EmployeeServiceTest {
 
     @Test
     void shouldCreateEmployee() {
-        Employee employeeData = new Employee(1, "alex", 100, 20, "image");
-        when(employeeServiceClient.createEmployee(any(Employee.class)))
+        CreatedEmployeeData employeeData = new CreatedEmployeeData(1, "alex", 100, 20, "image");
+        when(employeeServiceClient.createEmployee(any(CreatedEmployeeData.class)))
                 .thenReturn(new CreatedEmployeeData(1, "alex", 100, 20, "image"));
         CreatedEmployeeData employee = employeeService.createEmployee(employeeData);
 

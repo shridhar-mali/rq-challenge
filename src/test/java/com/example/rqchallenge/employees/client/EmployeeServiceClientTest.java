@@ -80,8 +80,8 @@ class EmployeeServiceClientTest {
 
     @Test
     void shouldCreateEmployee() {
-        Employee employeeData = new Employee(1, "alex", 100, 20, "image");
-        when(restTemplate.postForEntity(anyString(), any(Employee.class), any()))
+        CreatedEmployeeData employeeData = new CreatedEmployeeData(1, "alex", 100, 20, "image");
+        when(restTemplate.postForEntity(anyString(), any(CreatedEmployeeData.class), any()))
                 .thenReturn(ResponseEntity.ok().body(new CreateEmployeeResponse("success",
                         new CreatedEmployeeData(1, "alex", 100, 20, "image"))));
         CreatedEmployeeData employee = employeeServiceClient.createEmployee(employeeData);
@@ -94,8 +94,8 @@ class EmployeeServiceClientTest {
 
     @Test
     void shouldThrowExceptionWhenCreateEmployeeApiCallFails() {
-        Employee employeeData = new Employee(1, "alex", 100, 20, "image");
-        when(restTemplate.postForEntity(anyString(), any(Employee.class), any()))
+        CreatedEmployeeData employeeData = new CreatedEmployeeData(1, "alex", 100, 20, "image");
+        when(restTemplate.postForEntity(anyString(), any(CreatedEmployeeData.class), any()))
                 .thenReturn(ResponseEntity.internalServerError().build());
         assertThatCode(() -> employeeServiceClient.createEmployee(employeeData)).isExactlyInstanceOf(BusinessServiceException.class);
     }

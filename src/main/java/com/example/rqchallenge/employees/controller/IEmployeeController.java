@@ -29,7 +29,7 @@ public interface IEmployeeController {
 
     @PostMapping("/create")
     @ResponseBody
-    ResponseEntity<CreatedEmployeeData> createEmployee(@RequestBody Employee employeeInput);
+    ResponseEntity<CreatedEmployeeData> createEmployee(@RequestBody CreatedEmployeeData employeeInput);
 
     @DeleteMapping("/delete/{id}")
     ResponseEntity<String> deleteEmployeeById(@PathVariable String id);

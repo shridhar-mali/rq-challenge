@@ -35,7 +35,7 @@ public class EmployeeService {
     }
 
 
-    public CreatedEmployeeData createEmployee(Employee employee) {
+    public CreatedEmployeeData createEmployee(CreatedEmployeeData employee) {
         return iEmployeeServiceClient.createEmployee(employee);
     }
 

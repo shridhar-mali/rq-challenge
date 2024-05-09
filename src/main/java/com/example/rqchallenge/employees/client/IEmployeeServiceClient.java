@@ -11,7 +11,7 @@ public interface IEmployeeServiceClient {
 
     Employee getEmployeeById(Integer id);
 
-    CreatedEmployeeData createEmployee(Employee employee);
+    CreatedEmployeeData createEmployee(CreatedEmployeeData employee);
 
     String deleteEmployeeById(String id);
 }

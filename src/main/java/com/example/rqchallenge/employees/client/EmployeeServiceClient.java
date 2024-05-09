@@ -75,7 +75,7 @@ public class EmployeeServiceClient implements IEmployeeServiceClient {
     }
 
     @Override
-    public CreatedEmployeeData createEmployee(Employee employee) {
+    public CreatedEmployeeData createEmployee(CreatedEmployeeData employee) {
         CreateEmployeeResponse employeeResponse = performPostRequest(String.join("/", employeeAPIBaseUrl, CREATE_EMPLOYEE_ENDPOINT_URI), employee, CreateEmployeeResponse.class);
         return employeeResponse.getData();
     }

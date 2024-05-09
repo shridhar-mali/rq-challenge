@@ -81,10 +81,10 @@ class EmployeeControllerTest {
     public void shouldCreateEmployeeWithGivenDetails()
             throws Exception {
 
-        Employee alex = new Employee(1, "alex", 100, 20, "image");
+        CreatedEmployeeData alex = new CreatedEmployeeData(1, "alex", 100, 20, "image");
         String employeeJsonString = new ObjectMapper().writeValueAsString(alex);
 
-        given(employeeService.createEmployee(any(Employee.class))).willReturn(new CreatedEmployeeData(1, "alex", 100, 20, "image"));
+        given(employeeService.createEmployee(any(CreatedEmployeeData.class))).willReturn(new CreatedEmployeeData(1, "alex", 100, 20, "image"));
 
         mvc.perform(MockMvcRequestBuilders.post("/employees/create")
                         .content(employeeJsonString)
