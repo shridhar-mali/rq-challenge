@@ -1,0 +1,21 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "/api/v1/create"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "status": "success",
+      "data": {
+        "name": "Brian Lara",
+        "salary": "123",
+        "age": "23",
+        "id": 25000
+      }
+    }
+  }
+}
