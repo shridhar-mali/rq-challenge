@@ -38,7 +38,6 @@ class EmployeeServiceClientTest {
     @BeforeEach
     public void setUp() {
         ReflectionTestUtils.setField(employeeServiceClient, "employeeAPIBaseUrl", "https://dummy.restapiexample.com");
-//        ReflectionTestUtils.setField(employeeServiceClient, EmployeeServiceClient.class, "employeeAPIBaseUrl", "https://dummy.restapiexample.com", String.class);
     }
 
     @Test
