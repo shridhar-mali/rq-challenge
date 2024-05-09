@@ -2,18 +2,18 @@ package com.example.rqchallenge.employees.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Employee {
+public class CreatedEmployeeData {
     private int id;
-    @JsonProperty("employee_name")
+    @JsonProperty("name")
     private String employeeName;
-    @JsonProperty("employee_salary")
+    @JsonProperty("salary")
     private int employeeSalary;
-    @JsonProperty("employee_age")
+    @JsonProperty("age")
     private int employeeAge;
-    @JsonProperty("profile_image")
+    @JsonProperty("image")
     private String profileImage;
 
-    public Employee(int id, String employeeName, int employeeSalary, int employeeAge, String profileImage) {
+    public CreatedEmployeeData(int id, String employeeName, int employeeSalary, int employeeAge, String profileImage) {
         this.id = id;
         this.employeeName = employeeName;
         this.employeeSalary = employeeSalary;

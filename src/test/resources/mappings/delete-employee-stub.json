@@ -1,7 +1,7 @@
 {
   "request": {
-    "method": "POST",
-    "url": "/api/v1/create"
+    "method": "DELETE",
+    "url": "/api/v1/delete/1"
   },
   "response": {
     "status": 200,
@@ -10,12 +10,8 @@
     },
     "jsonBody": {
       "status": "success",
-      "data": {
-        "name": "Brian Lara",
-        "salary": "123",
-        "age": "23",
-        "id": 25000
-      }
+      "data": "1",
+      "message": "Successfully! Record has been deleted"
     }
   }
 }

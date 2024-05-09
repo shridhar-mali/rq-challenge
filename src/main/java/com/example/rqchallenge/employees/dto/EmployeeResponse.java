@@ -1,16 +1,25 @@
 package com.example.rqchallenge.employees.dto;
 
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-public class EmployeesResponse {
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class EmployeeResponse {
     private String status;
-    private List<Employee> data;
+    private Employee data;
     private String message;
 
-    public EmployeesResponse(String status, List<Employee> data, String message) {
+    public EmployeeResponse() {
+    }
+
+    public EmployeeResponse(String status, Employee data, String message) {
         this.status = status;
         this.data = data;
         this.message = message;
+    }
+
+    public EmployeeResponse(String status, Employee data) {
+        this.status = status;
+        this.data = data;
     }
 
     public String getStatus() {
@@ -21,11 +30,11 @@ public class EmployeesResponse {
         this.status = status;
     }
 
-    public List<Employee> getData() {
+    public Employee getData() {
         return data;
     }
 
-    public void setData(List<Employee> data) {
+    public void setData(Employee data) {
         this.data = data;
     }
 
