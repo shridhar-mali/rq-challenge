@@ -14,6 +14,7 @@ import java.util.List;
 
 import static org.springframework.http.HttpMethod.DELETE;
 
+@Deprecated(since = "FeignClient")
 @Component
 public class EmployeeServiceClient implements IEmployeeServiceClient {
 

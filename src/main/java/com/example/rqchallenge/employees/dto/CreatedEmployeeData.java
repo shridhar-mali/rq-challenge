@@ -2,21 +2,26 @@ package com.example.rqchallenge.employees.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class CreatedEmployeeData {
+import java.io.Serializable;
+
+public class CreatedEmployeeData implements Serializable {
     private int id;
     @JsonProperty("name")
-    private String employeeName;
+    private String name;
     @JsonProperty("salary")
-    private int employeeSalary;
+    private int salary;
     @JsonProperty("age")
     private int employeeAge;
     @JsonProperty("image")
     private String profileImage;
 
-    public CreatedEmployeeData(int id, String employeeName, int employeeSalary, int employeeAge, String profileImage) {
+    public CreatedEmployeeData() {
+    }
+
+    public CreatedEmployeeData(int id, String name, int salary, int employeeAge, String profileImage) {
         this.id = id;
-        this.employeeName = employeeName;
-        this.employeeSalary = employeeSalary;
+        this.name = name;
+        this.salary = salary;
         this.employeeAge = employeeAge;
         this.profileImage = profileImage;
     }
@@ -29,20 +34,20 @@ public class CreatedEmployeeData {
         this.id = id;
     }
 
-    public String getEmployeeName() {
-        return employeeName;
+    public String getName() {
+        return name;
     }
 
-    public void setEmployeeName(String employeeName) {
-        this.employeeName = employeeName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getEmployeeSalary() {
-        return employeeSalary;
+    public int getSalary() {
+        return salary;
     }
 
-    public void setEmployeeSalary(int employeeSalary) {
-        this.employeeSalary = employeeSalary;
+    public void setSalary(int salary) {
+        this.salary = salary;
     }
 
     public int getEmployeeAge() {

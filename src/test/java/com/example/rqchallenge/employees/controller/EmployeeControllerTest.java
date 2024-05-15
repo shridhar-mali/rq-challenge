@@ -90,7 +90,7 @@ class EmployeeControllerTest {
                         .content(employeeJsonString)
                         .contentType(APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.name", is(alex.getEmployeeName())))
+                .andExpect(jsonPath("$.name", is(alex.getName())))
                 .andExpect(jsonPath("$.id", is(alex.getId())));
     }
 

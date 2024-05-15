@@ -1,6 +1,6 @@
 package com.example.rqchallenge.integration;
 
-import com.example.rqchallenge.employees.dto.Employee;
+import com.example.rqchallenge.employees.dto.CreatedEmployeeData;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.tomakehurst.wiremock.junit5.WireMockTest;
 import org.junit.jupiter.api.Test;
@@ -86,7 +86,7 @@ public class EmployeeControllerIntTest {
     public void shouldCreateEmployee()
             throws Exception {
 
-        Employee alex = new Employee(25000, "Brian Lara", 100, 20, "image");
+        CreatedEmployeeData alex = new CreatedEmployeeData(25000, "Brian Lara", 100, 20, "image");
         String employeeJsonString = new ObjectMapper().writeValueAsString(alex);
 
         mvc.perform(MockMvcRequestBuilders.post("/employees/create")

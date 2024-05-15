@@ -88,7 +88,7 @@ class EmployeeServiceClientTest {
         verify(restTemplate).postForEntity("https://dummy.restapiexample.com/api/v1/create", employeeData, CreateEmployeeResponse.class);
 
         assertThat(employee.getId()).isEqualTo(1);
-        assertThat(employee.getEmployeeName()).isEqualTo("alex");
+        assertThat(employee.getName()).isEqualTo("alex");
     }
 
     @Test

@@ -2,7 +2,9 @@ package com.example.rqchallenge.employees.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Employee {
+import java.io.Serializable;
+
+public class Employee implements Serializable {
     private int id;
     @JsonProperty("employee_name")
     private String employeeName;

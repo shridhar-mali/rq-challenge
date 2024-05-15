@@ -1,5 +1,6 @@
 package com.example.rqchallenge.employees.service;
 
+import com.example.rqchallenge.employees.client.EmployeesAPIClient;
 import com.example.rqchallenge.employees.client.IEmployeeServiceClient;
 import com.example.rqchallenge.employees.dto.CreatedEmployeeData;
 import com.example.rqchallenge.employees.dto.Employee;
@@ -17,36 +18,35 @@ import static java.util.stream.Collectors.toList;
 public class EmployeeService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(EmployeeService.class);
+    private final EmployeesAPIClient employeesAPIClient;
 
-    private IEmployeeServiceClient iEmployeeServiceClient;
-
-    public EmployeeService(IEmployeeServiceClient iEmployeeServiceClient) {
-        this.iEmployeeServiceClient = iEmployeeServiceClient;
+    public EmployeeService(EmployeesAPIClient employeesAPIClient) {
+        this.employeesAPIClient = employeesAPIClient;
     }
 
     public List<Employee> getAllEmployees() {
-        return iEmployeeServiceClient.getAllEmployees();
+        return employeesAPIClient.getAllEmployees().getData();
     }
 
 
     public Employee getEmployeeById(Integer id) {
         LOGGER.info("getting employee details for id {}", id);
-        return iEmployeeServiceClient.getEmployeeById(id);
+        return employeesAPIClient.getEmployeeById(id).getData();
     }
 
 
     public CreatedEmployeeData createEmployee(CreatedEmployeeData employee) {
-        return iEmployeeServiceClient.createEmployee(employee);
+        return employeesAPIClient.createEmployee(employee).getData();
     }
 
 
     public String deleteEmployeeById(String id) {
         LOGGER.info("deleting employee with id {}", id);
-        return iEmployeeServiceClient.deleteEmployeeById(id);
+        return employeesAPIClient.deleteEmployeeById(id).getData();
     }
 
     public Integer getHighestSalaryOfEmployees() {
-        return iEmployeeServiceClient.getAllEmployees()
+        return getAllEmployees()
                 .stream()
                 .mapToInt(Employee::getEmployeeSalary)
                 .max()
@@ -54,7 +54,7 @@ public class EmployeeService {
     }
 
     public List<String> getTop10HighestEarningEmployeeNames() {
-        return iEmployeeServiceClient.getAllEmployees()
+        return getAllEmployees()
                 .stream()
                 .sorted(comparingInt(Employee::getEmployeeSalary).reversed())
                 .map(Employee::getEmployeeName)
@@ -64,7 +64,7 @@ public class EmployeeService {
 
     public List<Employee> getEmployeesByNameSearch(String searchString) {
         LOGGER.info("searching employees with search string {}", searchString);
-        return iEmployeeServiceClient.getAllEmployees()
+        return getAllEmployees()
                 .stream()
                 .filter(employee -> employee.getEmployeeName().contains(searchString))
                 .sorted(comparing((Employee employee) -> !employee.getEmployeeName().equals(searchString)) // Exact match first

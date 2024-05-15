@@ -5,6 +5,7 @@ import com.example.rqchallenge.employees.dto.Employee;
 
 import java.util.List;
 
+@Deprecated(since = "FeignClient")
 public interface IEmployeeServiceClient {
 
     List<Employee> getAllEmployees();
